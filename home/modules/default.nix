@@ -1,0 +1,4 @@
+[
+  ./nheko.nix
+  ./spotify.nix
+]

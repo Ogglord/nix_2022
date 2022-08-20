@@ -1,0 +1,13 @@
+[
+  ./alacritty
+  ./autorandr
+  ./browsers/firefox.nix
+  ./dconf
+  ./git
+  ./zsh
+  ./neovim
+  ./nheko
+  ./orage
+  ./rofi
+  ./xmonad
+]

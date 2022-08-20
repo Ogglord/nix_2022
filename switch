@@ -1,0 +1,53 @@
+#! /usr/bin/env bash
+
+# Shows the output of every command
+set +x
+
+rebuild_home_thinkpad() {
+  nix build .#homeConfigurations.oscar.activationPackage
+  result/activate -b
+}
+
+rebuild_home_dell() {
+  nix build .#homeConfigurations.oscar-dell.activationPackage
+  result/activate -b
+}
+
+rebuild_system() {
+  # nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
+  # sudo result/bin/switch-to-configuration switch
+  sudo nixos-rebuild switch --flake .#thinkpad
+}
+
+switch() {
+  echo "switch to most recent config in ./result/bin/..."
+  sudo result/bin/switch-to-configuration switch
+}
+
+rebuild_vm() {
+  sudo nixos-rebuild build-vm --flake .#thinkpad
+}
+
+restart_X() {
+  echo "⚠️ Restarting X11 (requires authentication) ⚠️"
+  systemctl restart display-manager
+}
+
+case $1 in
+  "thinkpad")
+    rebuild_home_thinkpad;;
+  "dell")
+    rebuild_home_dell;;
+  "switch")
+    switch;;
+  "restart-x")
+    restart_X;;
+  "update-zsh")
+    zsh -c zsh_update_completions;;
+  "system")
+    rebuild_system;;
+  "vm")
+    rebuild_vm;;
+  *)
+    echo "expected 'thinkpad', 'switch', 'dell', 'restart-x', 'update-zsh', 'system' or 'vm'";;
+esac
