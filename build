@@ -51,9 +51,9 @@ fresh_install() {
 }
 
 case $1 in
-  "ci-home")
+  "home")
     build_ci_home;;
-  "ci-system")
+  "system")
     build_ci_system;;
   "fresh-install")
     fresh_install;;
@@ -62,5 +62,5 @@ case $1 in
   "post-home")
     post_home;;
   *)
-    echo "Invalid option. Expected 'ci-home', 'ci-system', 'pre_home', 'post_home' or 'fresh-install'";;
+    echo "Invalid option. Expected 'home', 'system', 'pre_home', 'post_home' or 'fresh-install'";;
 esac
