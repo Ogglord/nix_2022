@@ -7,9 +7,10 @@ in
   programs.vscode = {
     enable = true;
     userSettings = {
-            "window.zoomLevel" = -2;
+            "window.zoomLevel" = -3;
             "terminal.integrated.fontFamily" = "JetBrainsMono";
             "workbench.startupEditor" = "none";
+            "git.autofetch" = true;
     };
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
