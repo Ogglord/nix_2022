@@ -33,13 +33,15 @@ let
 
       modules = [
         {
-          imports = [ ../home/home.nix ];
+          imports = [
+            ../home/home.nix
+           ];
           home = {
             inherit username homeDirectory;
             stateVersion = "22.11";
           };
         }
-      ];
+      ]
     });
 in
 {

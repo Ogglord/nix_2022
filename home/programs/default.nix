@@ -10,4 +10,5 @@
   ./orage
   ./rofi
   ./xmonad
+  ./vscode-server
 ]
