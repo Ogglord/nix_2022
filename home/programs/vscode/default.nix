@@ -15,10 +15,11 @@ in
             "git.confirmSync" = false;
             "workbench.colorTheme" = "GitHub Dark Dimmed";
     };
-    package = pkgs.vscode;
+    package = pkgs.vscode;  
     extensions = with pkgs.vscode-extensions; [
             bbenoist.nix
             justusadam.language-haskell
+            github.github-vscode-theme
     ];
     
   };
