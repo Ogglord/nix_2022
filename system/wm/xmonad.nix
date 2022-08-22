@@ -14,7 +14,7 @@
 
     xserver = {
       enable = true;
-      autorun = false; ## added 20 aug 2022 /Ogg
+      # autorun = true; ## added 20 aug 2022 /Ogg
 
       # extraLayouts.us-custom = {
       #   description = "US layout with custom hyper keys";
@@ -22,7 +22,11 @@
       #   symbolsFile = ./us-custom.xkb;
       # };
 
-      layout = "se";
+      # Configure keymap in X11
+      layout = "us";
+      /* xkbVariant = "";
+      xkbModel = "pc105";
+      xkbOptions = "eurosign:e, compose:menu, grp:caps_toggle"; */
 
       libinput = {
         enable = true;
@@ -37,9 +41,8 @@
 
       displayManager = {
         defaultSession = "none+xmonad";
-        lightdm.enable = false; ## added 20 aug 2022 /Ogg
-        sddm.enable = true;
-        startx.enable = true;   ## added 20 aug 2022 /Ogg
+        /* lightdm.enable = false; ## added 20 aug 2022 /Ogg
+        startx.enable = true; ## added 20 aug 2022 /Ogg */
 
       };
 
@@ -61,7 +64,7 @@
       General = {
         Enable = "Source,Sink,Media,Socket";
       };
-   };
+    };
   };
 
   services.blueman.enable = true;
