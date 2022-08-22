@@ -183,14 +183,6 @@ in
     };
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-      layout = "se";
-      xkbVariant = "";
-      xkbModel = "pc105";
-      xkbOptions = "eurosign:e, compose:menu, grp:caps_toggle";
-  };
-
   # Configure console keymap
 
   i18n.extraLocaleSettings = {
