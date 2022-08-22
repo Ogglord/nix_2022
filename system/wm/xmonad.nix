@@ -43,6 +43,7 @@
         defaultSession = "none+xmonad";
         /* lightdm.enable = false; ## added 20 aug 2022 /Ogg
         startx.enable = true; ## added 20 aug 2022 /Ogg */
+
       };
 
       windowManager.xmonad = {
