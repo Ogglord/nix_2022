@@ -16,26 +16,16 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
-    nvim-traxys = {
-      url = "github:traxys/nvim-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # neovim-flake = {
-    #   # url = git+file:///home/gvolpe/workspace/neovim-flake;
-    #   url = github:gvolpe/neovim-flake;
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
-  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, hardware, nvim-traxys }:
+  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, hardware, nvim-traxys, vscode-server }:
     let
       system = "x86_64-linux";
     in
     {
       homeConfigurations = (
         import ./outputs/home-conf.nix {
-          inherit system nixpkgs nurpkgs home-manager nvim-traxys;
+          inherit system nixpkgs nurpkgs home-manager;
         }
       );
 
