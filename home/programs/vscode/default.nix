@@ -7,7 +7,7 @@ in
   programs.vscode = {
     enable = true;
     userSettings = {
-            "window.zoomLevel" = "0.8";
+            "window.zoomLevel" = -2;
             "terminal.integrated.fontFamily" = "JetBrainsMono";
             "workbench.startupEditor" = "none";
     };
