@@ -108,6 +108,8 @@ in
 
   xdg.enable = true;
 
+  home.keyboard = null;
+
   home = {
     packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs;
 

@@ -42,6 +42,7 @@ in
   environment.systemPackages = with pkgs; [
     vim
     wget
+    xorg.xbacklight
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
