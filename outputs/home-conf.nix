@@ -1,4 +1,4 @@
-{ system, nixpkgs, nurpkgs, home-manager, nvim-traxys, ... }:
+{ system, nixpkgs, nurpkgs, home-manager, ... }:
 
 let
   username = "oscar";
@@ -41,7 +41,7 @@ let
             stateVersion = "22.11";
           };
         }
-      ]
+      ];
     });
 in
 {

@@ -18,7 +18,7 @@
 
   };
 
-  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, hardware, nvim-traxys, vscode-server }:
+  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, hardware}:
     let
       system = "x86_64-linux";
     in
