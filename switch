@@ -19,9 +19,15 @@ rebuild_system() {
   sudo nixos-rebuild switch --flake .#thinkpad
 }
 
-switch() {
-  echo "switch to most recent config in ./result/bin/..."
+switch_system() {
+  echo "switch to most recent system config in ./result/bin/..."
   sudo result/bin/switch-to-configuration switch
+}
+
+switch_home() {
+  echo "switch to most recent home config"
+  rm /home/oscar/.xmonad/xmonad-x86_64-linux
+  result/bin/home-manager-generation switch
 }
 
 rebuild_vm() {
@@ -38,16 +44,16 @@ case $1 in
     rebuild_home_thinkpad;;
   "dell")
     rebuild_home_dell;;
-  "switch")
-    switch;;
+  "system")
+    switch_system;;
+  "home")
+    switch_home;;    
   "restart-x")
     restart_X;;
   "update-zsh")
     zsh -c zsh_update_completions;;
-  "system")
-    rebuild_system;;
-  "vm")
-    rebuild_vm;;
+#  "vm")
+#    rebuild_vm;;
   *)
-    echo "expected 'thinkpad', 'switch', 'dell', 'restart-x', 'update-zsh', 'system' or 'vm'";;
+    echo "expected 'thinkpad', 'system', 'home', 'restart-x', 'update-zsh'";;
 esac

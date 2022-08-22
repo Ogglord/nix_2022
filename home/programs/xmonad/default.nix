@@ -9,18 +9,17 @@ let
     ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
   '';
 
-  xrandrOps = ''
-    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
-  '';
+  # xrandrOps = ''
+  #   ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
+  # '';
 
-  hdmiExtra = if specialArgs.hidpi then xrandrOps else "";
+  # hdmiExtra = if specialArgs.hidpi then xrandrOps else "";
 
   polybarOpts = ''
     ${pkgs.nitrogen}/bin/nitrogen --restore &
     ${pkgs.pasystray}/bin/pasystray &
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
-    megasync &
   '';
 in
 {
@@ -38,7 +37,7 @@ in
   xsession = {
     enable = true;
 
-    initExtra = extra + polybarOpts + hdmiExtra;
+    initExtra = extra + polybarOpts;# + hdmiExtra;
 
     windowManager.xmonad = {
       enable = true;

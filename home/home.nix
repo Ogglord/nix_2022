@@ -162,7 +162,7 @@ in
     ## smarter cd use "z" instead of "cd" - space+tab to toggle multiple match
     zoxide = {
       enable = true;
-      enableFishIntegration = true;
+      enableZshIntegration = true;
       options = [];
     };
 

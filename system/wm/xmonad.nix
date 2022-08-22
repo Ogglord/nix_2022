@@ -14,7 +14,7 @@
 
     xserver = {
       enable = true;
-      autorun = true; ## added 20 aug 2022 /Ogg
+      autorun = false; ## added 20 aug 2022 /Ogg
 
       # extraLayouts.us-custom = {
       #   description = "US layout with custom hyper keys";
@@ -38,6 +38,7 @@
       displayManager = {
         defaultSession = "none+xmonad";
         lightdm.enable = false; ## added 20 aug 2022 /Ogg
+        sddm.enable = true;
         startx.enable = true;   ## added 20 aug 2022 /Ogg
 
       };

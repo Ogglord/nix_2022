@@ -24,18 +24,8 @@ in
       #./cachix.nix
     ];
 
-  networking = {
-    # Enables wireless support and openvpn via network manager.
-    networkmanager = {
-      enable   = true;
-      plugins = [ pkgs.networkmanager-openvpn ];
-    };
-
-    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-    # Per-interface useDHCP will be mandatory in the future, so this generated config
-    # replicates the default behaviour.
-    useDHCP = false;
-  };
+  networking.networkmanager.enable = true;
+  networking.useDHCP = false;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -45,12 +35,11 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Set your time zone.
-  time.timeZone = "Europe/Warsaw";
+  time.timeZone = "Europe/Stockholm";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firejail
     vim
     wget
   ];
@@ -95,7 +84,7 @@ in
 
   services = {
     # Mount MTP devices
-    gvfs.enable = true;
+    #gvfs.enable = true;
 
     # Enable the OpenSSH daemon.
     openssh = {
@@ -206,10 +195,10 @@ in
   };
 
   ## Oscar: maybe needed for wayland?
-  # hardware.opengl = {
-  #   enable = true;
-  #   driSupport = true;
-  # };
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
 
   # security.rtkit.enable = true;
   # services.pipewire = {

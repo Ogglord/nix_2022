@@ -20,18 +20,18 @@ in
     interfaces.wlp58s0.useDHCP = true;
   };
 
-  services.xserver = {
-    xrandrHeads = [
-      { output = "eDP-1";
-        primary = true;
-        monitorConfig = ''
-          Option "PreferredMode" "1920x1080"
-          Option "Position" "0 0"
-        '';
-      }
-    ];
-    resolutions = [
-      { x = 1920; y = 1080; }
-    ];
-  };
+  # services.xserver = {
+  #   xrandrHeads = [
+  #     { output = "eDP-1";
+  #       primary = true;
+  #       monitorConfig = ''
+  #         Option "PreferredMode" "1920x1080"
+  #         Option "Position" "0 0"
+  #       '';
+  #     }
+  #   ];
+  #   resolutions = [
+  #     { x = 1920; y = 1080; }
+  #   ];
+  # };
 }
