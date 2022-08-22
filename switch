@@ -5,12 +5,14 @@ set +x
 
 rebuild_home_thinkpad() {
   nix build .#homeConfigurations.oscar.activationPackage
+  rm /home/oscar/.config/orage/oragerc
   rm /home/oscar/.xmonad/xmonad-x86_64-linux
   result/activate -b
 }
 
 rebuild_home_dell() {
   nix build .#homeConfigurations.oscar-dell.activationPackage
+  rm /home/oscar/.config/orage/oragerc
   rm /home/oscar/.xmonad/xmonad-x86_64-linux
   result/activate -b
 }
@@ -43,9 +45,9 @@ restart_X() {
 }
 
 case $1 in
-  "thinkpad")
+  "home")
     rebuild_home_thinkpad;;
-  "dell")
+  "dell-home")
     rebuild_home_dell;;
   "system")
     switch_system;;
@@ -53,10 +55,6 @@ case $1 in
     switch_home;;    
   "restart-x")
     restart_X;;
-  "update-zsh")
-    zsh -c zsh_update_completions;;
-#  "vm")
-#    rebuild_vm;;
   *)
-    echo "expected 'thinkpad', 'system', 'home', 'restart-x', 'update-zsh'";;
+    echo "expected 'home' (thinkpad), 'dell-home', 'restart-x'";;
 esac
