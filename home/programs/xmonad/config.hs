@@ -451,8 +451,8 @@ scratchpads = scratchpadApp <$> [ audacious, btm, nautilus, scr, spotify ]
 -- Workspaces
 --
 webWs = "web"
-ossWs = "oss"
-devWs = "dev"
+ossWs = "nix"
+devWs = "vscode"
 comWs = "com"
 wrkWs = "wrk"
 sysWs = "sys"
@@ -471,12 +471,12 @@ projects =
             , projectStartHook = Just $ spawn "firefox -P 'default'"
             }
   , Project { projectName      = ossWs
-            , projectDirectory = "~/workspace/nix-config"
-            , projectStartHook = Just . replicateM_ 3 $ spawn myTerminal
+            , projectDirectory = "~/nix-config"
+            , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
             }
   , Project { projectName      = devWs
-            , projectDirectory = "~/workspace/trading"
-            , projectStartHook = Just . replicateM_ 8 $ spawn myTerminal
+            , projectDirectory = "~/nix-config"
+            , projectStartHook = Just $ spawn "code"
             }
   , Project { projectName      = comWs
             , projectDirectory = "~/"
