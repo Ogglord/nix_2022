@@ -11,4 +11,5 @@
   ./rofi
   ./xmonad
   ./vscode-server
+  ./vscode
 ]

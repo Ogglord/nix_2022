@@ -30,6 +30,7 @@ au BufNewFile,BufRead *.hs map <silent> <C-c> :HoogleClose<CR>
 
 " Nerdtree
 map <C-F> :NERDTreeToggle<CR>
+map <F6> :NERDTreeToggle<CR>
 map <C-S> :NERDTreeFind<CR>
 
 let g:NERDTreeDirArrowExpandable = '▸'

@@ -9,7 +9,7 @@ set viewoptions=folds,options,cursor,unix,slash
 set encoding=utf-8
 
 " Relative numbers
-set relativenumber
+" set relativenumber
 
 " Handle window actions with Meta instead of <C-w>
 " Switching
@@ -114,49 +114,18 @@ au BufNewFile,BufRead *.md set spell
 nnoremap Q <Nop>
 nnoremap gQ <Nop>
 
-" Disable arrow keys and page up / down
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-vnoremap <Up> <nop>
-vnoremap <Down> <nop>
-vnoremap <Left> <nop>
-vnoremap <Right> <nop>
-noremap <PageUp> <nop>
-inoremap <PageUp> <nop>
-vnoremap <PageUp> <nop>
-noremap <PageDown> <nop>
-inoremap <PageDown> <nop>
-vnoremap <PageDown> <nop>
-
-" Disable mouse / touchpad (only in vim)
-set mouse=nicr
-inoremap <ScrollWheelUp> <nop>
-inoremap <S-ScrollWheelUp> <nop>
-inoremap <C-ScrollWheelUp> <nop>
-inoremap <ScrollWheelDown> <nop>
-inoremap <S-ScrollWheelDown> <nop>
-inoremap <C-ScrollWheelDown> <nop>
-inoremap <ScrollWheelLeft> <nop>
-inoremap <S-ScrollWheelLeft> <nop>
-inoremap <C-ScrollWheelLeft> <nop>
-inoremap <ScrollWheelRight> <nop>
-inoremap <S-ScrollWheelRight> <nop>
-inoremap <C-ScrollWheelRight> <nop>
 
 " close quickfix window
-nnoremap <Esc> :cclose<CR>
+"nnoremap <Esc> :cclose<CR>
 
 " Clear search highlighting
 nnoremap <C-z> :nohlsearch<CR>
 
 " Terminal mode exit shortcut
 :tnoremap <Esc> <C-\><C-n>
+
+" Quick quit w double esc
+inoremap <Esc><Esc> <Esc>:q!<CR>
 
 " Incremental substitution
 set inccommand=split
