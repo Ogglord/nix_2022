@@ -41,8 +41,8 @@
 
       displayManager = {
         defaultSession = "none+xmonad";
-        /* lightdm.enable = false; ## added 20 aug 2022 /Ogg
-        startx.enable = true; ## added 20 aug 2022 /Ogg */
+        lightdm.enable = true; ## added 20 aug 2022 /Ogg 
+       /* startx.enable = true; ## added 20 aug 2022 /Ogg */
 
       };
 
