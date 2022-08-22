@@ -5,11 +5,13 @@ set +x
 
 rebuild_home_thinkpad() {
   nix build .#homeConfigurations.oscar.activationPackage
+  rm /home/oscar/.xmonad/xmonad-x86_64-linux
   result/activate -b
 }
 
 rebuild_home_dell() {
   nix build .#homeConfigurations.oscar-dell.activationPackage
+  rm /home/oscar/.xmonad/xmonad-x86_64-linux
   result/activate -b
 }
 
@@ -27,6 +29,7 @@ switch_system() {
 switch_home() {
   echo "switch to most recent home config"
   rm /home/oscar/.xmonad/xmonad-x86_64-linux
+  rm /home/oscar/.config/orage/oragerc
   result/bin/home-manager-generation switch
 }
 
