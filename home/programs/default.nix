@@ -5,6 +5,7 @@
   ./dconf
   ./git
   ./zsh
+  #./neovim-ide
   ./neovim
   ./nheko
   ./orage

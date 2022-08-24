@@ -16,16 +16,21 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
+    neovim-flake = {
+      url = github:gvolpe/neovim-flake;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, hardware}:
+  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, hardware, neovim-flake}:
     let
       system = "x86_64-linux";
     in
     {
       homeConfigurations = (
         import ./outputs/home-conf.nix {
-          inherit system nixpkgs nurpkgs home-manager;
+          inherit system nixpkgs nurpkgs home-manager neovim-flake;
         }
       );
 

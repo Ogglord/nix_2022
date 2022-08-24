@@ -1,4 +1,4 @@
-{ system, nixpkgs, nurpkgs, home-manager, ... }:
+{ system, nixpkgs, nurpkgs, home-manager, neovim-flake, ... }:
 
 let
   username = "oscar";
@@ -13,6 +13,7 @@ let
 
     overlays = [
       nurpkgs.overlay
+      neovim-flake.overlays.default
       (import ../home/overlays/ranger)
     ];
   };
@@ -34,6 +35,7 @@ let
       modules = [
         {
           imports = [
+            neovim-flake.nixosModules.hm
             ../home/home.nix
            ];
           home = {

@@ -43,7 +43,7 @@ let
     #protonvpn-gui        # official proton vpn client
     pulsemixer           # pulseaudio mixer
     ranger               # terminal file explorer
-    #ripgrep              # fast grep
+    ripgrep              # fast grep
     rnix-lsp             # nix lsp server
     #simple-scan          # scanner gui
     simplescreenrecorder # screen recorder gui
@@ -95,6 +95,17 @@ let
     xorg.xrandr            # display manager (X Resize and Rotate protocol)
   ];
 
+  haskellPkgs = with pkgs.haskellPackages; [
+    brittany                # code formatter
+    cabal2nix               # convert cabal projects to nix
+    cabal-install           # package manager
+    ghc                     # compiler
+    haskell-language-server # haskell IDE (ships with ghcide)
+    hoogle                  # documentation
+    nix-tree                # visualize nix dependencies
+  ];
+
+
 in
 {
   programs.home-manager.enable = true;
@@ -111,7 +122,7 @@ in
   home.keyboard = null;
 
   home = {
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs ++ haskellPkgs;
 
     sessionVariables = {
       DISPLAY = ":0";

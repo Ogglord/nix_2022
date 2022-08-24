@@ -59,6 +59,7 @@ import           XMonad.Layout.NoBorders               ( smartBorders )
 import           XMonad.Layout.PerWorkspace            ( onWorkspace )
 import           XMonad.Layout.Spacing                 ( spacing )
 import           XMonad.Layout.ThreeColumns            ( ThreeCol(..) )
+import           XMonad.Layout.StackTile               ( StackTile(..) )
 import           XMonad.Prompt                         ( XPConfig(..)
                                                        , amberXPConfig
                                                        , XPPosition(CenteredAt)
@@ -329,6 +330,7 @@ myLayout =
      tiled   = gapSpaced 10 $ Tall nmaster delta ratio
      full    = gapSpaced 5 Full
      column3 = gapSpaced 10 $ ThreeColMid 1 (3/100) (1/2)
+     column2 = gapSpaced 10 $ StackTile 1 (3/100) (3/4)
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -345,7 +347,7 @@ myLayout =
 
      -- Per workspace layout
      comLayout = onWorkspace comWs (full ||| tiled)
-     devLayout = onWorkspace devWs (column3 ||| full)
+     devLayout = onWorkspace devWs (column2 ||| full)
      webLayout = onWorkspace webWs (tiled ||| full)
      wrkLayout = onWorkspace wrkWs (tiled ||| full)
 
@@ -452,7 +454,7 @@ scratchpads = scratchpadApp <$> [ audacious, btm, nautilus, scr, spotify ]
 --
 webWs = "web"
 ossWs = "nix"
-devWs = "vscode"
+devWs = "vim"
 comWs = "com"
 wrkWs = "wrk"
 sysWs = "sys"
@@ -476,7 +478,8 @@ projects =
             }
   , Project { projectName      = devWs
             , projectDirectory = "~/nix-config"
-            , projectStartHook = Just $ spawn "code"
+            , projectStartHook = Just $ do spawn myTerminal
+                                           spawn myTerminal
             }
   , Project { projectName      = comWs
             , projectDirectory = "~/"
@@ -500,7 +503,7 @@ projects =
 projectsTheme :: XPConfig
 projectsTheme = amberXPConfig
   { bgHLight = "#002b36"
-  , font     = "xft:Bitstream Vera Sans Mono:size=8:antialias=true"
+  , font     = "xft:DejaVu Sans Mono:size=8:antialias=true"
   , height   = 50
   , position = CenteredAt 0.5 0.5
   }

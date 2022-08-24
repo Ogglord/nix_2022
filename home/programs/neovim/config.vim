@@ -126,6 +126,11 @@ nnoremap <C-z> :nohlsearch<CR>
 
 " Quick quit w double esc
 inoremap <Esc><Esc> <Esc>:q!<CR>
+" Quick quit w double esc
+noremap <Esc><Esc> :q!<CR>
+
+" Write and exit input mode
+:imap <C-s> <Esc>:w<CR>
 
 " Incremental substitution
 set inccommand=split

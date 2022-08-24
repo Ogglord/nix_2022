@@ -14,10 +14,12 @@ in
             "git.enableSmartCommit" = true;
             "git.confirmSync" = false;
             "workbench.colorTheme" = "GitHub Dark Dimmed";
+            "nix.enableLanguageServer" = true;
     };
     package = pkgs.vscode;  
     extensions = with pkgs.vscode-extensions; [
-            bbenoist.nix
+            #bbenoist.nix
+            jnoortheen.nix-ide
             justusadam.language-haskell
             github.github-vscode-theme
     ];

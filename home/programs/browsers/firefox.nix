@@ -33,13 +33,13 @@ let
 
     "browser.link.open_newwindow" = true;
 
-    "browser.search.region" = "PL";
+    "browser.search.region" = "SE";
     "browser.search.widget.inNavBar" = true;
 
     "browser.shell.checkDefaultBrowser" = false;
-    "browser.startup.homepage" = "https://nixos.org";
+    "browser.startup.homepage" = "https://google.com";
     "browser.tabs.loadInBackground" = true;
-    "browser.urlbar.placeholderName" = "DuckDuckGo";
+    "browser.urlbar.placeholderName" = "";
     "browser.urlbar.showSearchSuggestionsFirst" = false;
 
     "distribution.searchplugins.defaultLocale" = "en-US";
